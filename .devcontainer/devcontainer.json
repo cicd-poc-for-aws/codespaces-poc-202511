@@ -1,0 +1,24 @@
+{
+  "name": "React + Spring Boot + Postgreaql サンプル環境",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
+  // "dockerComposeFile": "./docker-compose.yml",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "vscjava.vscode-java-pack"
+      ]
+    }
+  },
+
+  "forwardPorts": [5173]
+}
