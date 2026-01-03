@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
 
 @Configuration
 public class SecurityConfig {
@@ -12,12 +13,8 @@ public class SecurityConfig {
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // CORS を有効化（これが超重要）
-            .cors(cors -> {})
-
-            // CSRF 無効（API 用）
             .csrf(csrf -> csrf.disable())
-
+            .cors(Customizer.withDefaults())
             .authorizeHttpRequests(auth -> auth
                 // preflight を明示的に許可
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
