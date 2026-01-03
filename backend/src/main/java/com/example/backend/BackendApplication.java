@@ -21,7 +21,7 @@ public class BackendApplication {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         // .allowedOrigins("http://localhost:5173")
-                        .allowedOrigins("https://improved-giggle-v6vjppjj7q65cp44r-5173.app.github.dev")
+                        .allowedOrigins("https://urban-umbrella-979g66ggxppg2p7vv-5173.app.github.dev/")
                         .allowedMethods("GET","POST","PUT","DELETE");
             }
         };

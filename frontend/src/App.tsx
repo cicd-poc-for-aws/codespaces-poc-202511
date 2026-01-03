@@ -17,7 +17,7 @@ function App() {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const res = await fetch("https://improved-giggle-v6vjppjj7q65cp44r-8080.app.github.dev/api/users");
+      const res = await fetch("/api/users");
       const data: User[] = await res.json();
       console.log("取得データ:", data);
       setUsers(data);
@@ -37,7 +37,7 @@ function App() {
     if (!newUserName) return;
     setLoading(true);
     try {
-      await fetch("https://improved-giggle-v6vjppjj7q65cp44r-8080.app.github.dev/api/users", {
+      await fetch("/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: newUserName }),
@@ -55,7 +55,7 @@ function App() {
     console.log("更新:", id, newName);
     setLoading(true);
     try {
-      await fetch(`https://improved-giggle-v6vjppjj7q65cp44r-8080.app.github.dev/api/users/${id}`, {
+      await fetch(`/api/users/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: newName }),
@@ -72,7 +72,7 @@ function App() {
     console.log("削除:", id);
     setLoading(true);
     try {
-      await fetch(`https://improved-giggle-v6vjppjj7q65cp44r-8080.app.github.dev/api/users/${id}`, { 
+      await fetch(`/api/users/${id}`, { 
         method: "DELETE" 
       });
       fetchUsers();
